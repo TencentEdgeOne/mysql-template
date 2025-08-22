@@ -35,7 +35,7 @@ export default function Home() {
               <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
             </div>
             <a
-              href="https://github.com"
+              href="https://github.com/TencentEdgeOne/mysql-template"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
