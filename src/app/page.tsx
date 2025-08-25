@@ -4,9 +4,10 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Play, ExternalLink, Zap } from "lucide-react"
+import Image from "next/image"
 
 export default function Home() {
-  const [apiResult, setApiResult] = useState<Array<any>>([])
+  const [apiResult, setApiResult] = useState<Array<Record<string, unknown>>>([])
   const [isLoading, setIsLoading] = useState(false)
 
   const handleApiCall = async () => {
@@ -15,7 +16,7 @@ export default function Home() {
       const response = await fetch("/db");
       const data = await response.json();
       setApiResult(data.data);
-    } catch (error) {
+    } catch {
       setApiResult([])
     } finally {
       setIsLoading(false)
@@ -30,7 +31,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
-                <img src="/eo-logo-white.svg" alt="EdgeOne Pages" width={32} height={32} />
+                <Image src="/eo-logo-white.svg" alt="EdgeOne Pages" width={32} height={32} />
               </div>
               <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
             </div>
