@@ -29,12 +29,14 @@ export default function Home() {
       <header className="border-b border-gray-800">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
+            <a href="/" target="_blank" rel="noopener noreferrer">
             <div className="flex items-center space-x-3">
-              <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
-                <Image src="/eo-logo-white.svg" alt="EdgeOne Pages" width={32} height={32} />
+              <div className="w-6 h-6rounded-full flex items-center justify-center">
+                <img src="/eo-logo-blue.svg" alt="EdgeOne Pages" width={32} height={32} />
               </div>
               <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
             </div>
+            </a>
             <a
               href="https://github.com/TencentEdgeOne/mysql-template"
               target="_blank"
@@ -68,7 +70,7 @@ export default function Home() {
               Node Functions on EdgeOne Pages - MySQL
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Node Functions 允许您在 Node Runtime 中运行代码，而无需管理服务器。借助其能力，您可以方便的在 Pages 开发部署连接MySQL 数据库的全栈应用。
+              Node Functions allow you to run code in a Node Runtime without managing servers. With its capabilities, you can easily develop and deploy full-stack applications connecting to MySQL databases on Pages.
             </p>
           </div>
 
@@ -79,7 +81,7 @@ export default function Home() {
               className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
             >
               <Zap className="w-5 h-5 mr-2" />
-              一键部署
+              Deploy Now
             </Button>
             <Button 
               variant="outline" 
@@ -87,7 +89,7 @@ export default function Home() {
               className="border-gray-600 hover:bg-gray-800 text-white px-8 py-3 text-lg cursor-pointer"
             >
               <ExternalLink className="w-5 h-5 mr-2" />
-              查看文档
+              View Documentation
             </Button>
           </div>
 
@@ -102,48 +104,10 @@ export default function Home() {
               <pre className="text-sm text-gray-200 font-mono leading-relaxed">
 {`import mysql from 'mysql2/promise';
 
-// 腾讯云 MySQL 数据库配置
-const dbConfig = {
-  host: process.env.DB_HOST || 'your-tencent-mysql-host',
-  port: process.env.DB_PORT || 3306,
-  user: process.env.DB_USER || 'your-username',
-  password: process.env.DB_PASSWORD || 'your-password',
-  database: process.env.DB_NAME || 'your-database-name',
-  charset: 'utf8mb4',
-  timezone: '+08:00',
-  connectionLimit: 10,
-  acquireTimeout: 60000,
-  timeout: 60000,
-  reconnect: true
-};
-
-// 数据库连接池
-let pool = null;
-
-// 初始化数据库连接
-const initDatabase = () => {
-  if (!pool) {
-    pool = mysql.createPool(dbConfig);
-    console.log('Database connection pool created');
-  }
-  return pool;
-};
-
-// 执行数据库查询
-const executeQuery = async (sql, params = []) => {
-  try {
-    const connection = initDatabase();
-    const [rows] = await connection.execute(sql, params);
-    return { success: true, data: rows };
-  } catch (error) {
-    console.error('Database query error:', error);
-    return { success: false, error: error.message };
-  }
-};
-
+...
 
 export const onRequestGet = async (context) => {
-  // 在这里添加数据库查询逻辑
+  // Add database query logic here
   const result = await executeQuery('SELECT * FROM user LIMIT 100');
 
   return new Response(JSON.stringify({
@@ -175,11 +139,11 @@ export const onRequestGet = async (context) => {
                   ) : (
                     <Play className="w-4 h-4 mr-2" />
                   )}
-                  执行 API 调用
+                  Execute API Call
                 </Button>
-                {apiResult && (
+                {apiResult && apiResult.length > 0 && (
                   <div className="text-left">
-                    <p className="text-sm text-gray-400 mb-2">API 调用结果:</p>
+                    <p className="text-sm text-gray-400 mb-2">API Call Result:</p>
                     <p className="text-green-400 font-mono bg-gray-800 px-3 py-2 rounded">
                       {JSON.stringify(apiResult)}
                     </p>
@@ -189,13 +153,13 @@ export const onRequestGet = async (context) => {
             </CardContent>
           </Card>
         </div>
+       
       </main>
-
       {/* Footer */}
       <footer className="border-t border-gray-800 mt-16">
         <div className="container mx-auto px-6 py-8">
           <div className="text-center text-gray-400">
-            <p>Powered by EdgeOne Pages & Next.js</p>
+            <p>Powered by EdgeOne Pages</p>
           </div>
         </div>
       </footer>
