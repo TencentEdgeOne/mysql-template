@@ -2,11 +2,6 @@ import mysql from 'mysql2/promise';
 
 // 腾讯云 MySQL 数据库配置
 const dbConfig = {
-  host: process.env.DB_HOST || 'your-tencent-mysql-host',
-  port: process.env.DB_PORT || 3306,
-  user: process.env.DB_USER || 'your-username',
-  password: process.env.DB_PASSWORD || 'your-password',
-  database: process.env.DB_NAME || 'your-database-name',
   charset: 'utf8mb4',
   timezone: '+08:00',
   connectionLimit: 10,
@@ -19,18 +14,21 @@ const dbConfig = {
 let pool = null;
 
 // 初始化数据库连接
-const initDatabase = () => {
+const initDatabase = (env) => {
   if (!pool) {
-    pool = mysql.createPool(dbConfig);
+    pool = mysql.createPool({
+      ...dbConfig,
+      ...env
+    });
     console.log('Database connection pool created');
   }
   return pool;
 };
 
 // 执行数据库查询
-const executeQuery = async (sql, params = []) => {
+const executeQuery = async (sql, params = [], env = {}) => {
   try {
-    const connection = initDatabase();
+    const connection = initDatabase(env);
     const [rows] = await connection.execute(sql, params);
     return { success: true, data: rows };
   } catch (error) {
@@ -42,7 +40,7 @@ const executeQuery = async (sql, params = []) => {
 
 export const onRequestGet = async (context) => {
   // 在这里添加数据库查询逻辑
-  const result = await executeQuery('SELECT * FROM user LIMIT 100');
+  const result = await executeQuery('SELECT * FROM user LIMIT 100', [], context.env);
 
   return new Response(JSON.stringify({
     success: result.success,
