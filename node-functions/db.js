@@ -2,6 +2,7 @@ import mysql from 'mysql2/promise';
 
 // 腾讯云 MySQL 数据库配置
 const dbConfig = {
+ 
   charset: 'utf8mb4',
   timezone: '+08:00',
   connectionLimit: 10,
@@ -18,7 +19,11 @@ const initDatabase = (env) => {
   if (!pool) {
     pool = mysql.createPool({
       ...dbConfig,
-      ...env
+      host: env.DB_HOST,
+      port: env.DB_PORT,
+      user: env.DB_USER,
+      password: env.DB_PASSWORD,
+      database: env.DB_NAME
     });
     console.log('Database connection pool created');
   }
