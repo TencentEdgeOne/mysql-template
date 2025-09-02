@@ -85,6 +85,7 @@ export default function Home() {
               Deploy Now
             </Button>
             </a>
+            <a href="https://edgeone.ai/document/187318055541846016" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="outline" 
               size="lg" 
@@ -93,6 +94,7 @@ export default function Home() {
               <ExternalLink className="w-5 h-5 mr-2" />
               View Documentation
             </Button>
+            </a>
           </div>
 
           {/* Code Block */}
