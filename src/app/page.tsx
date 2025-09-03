@@ -85,7 +85,7 @@ export default function Home() {
               Deploy Now
             </Button>
             </a>
-            <a href="https://edgeone.ai/document/187318055541846016" target="_blank" rel="noopener noreferrer">
+            <a href="https://pages.edgeone.ai/document/node-functions" target="_blank" rel="noopener noreferrer">
             <Button 
               variant="outline" 
               size="lg" 
