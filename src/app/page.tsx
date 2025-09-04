@@ -29,13 +29,13 @@ export default function Home() {
       <header className="border-b border-gray-800">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-            <div className="flex items-center space-x-3">
-              <div className="w-6 h-6rounded-full flex items-center justify-center">
-                <img src="/eo-logo-blue.svg" alt="EdgeOne Pages" width={32} height={32} />
+            <a href="https://pages.edgeone.ai" target="_blank" rel="noopener noreferrer">
+              <div className="flex items-center space-x-3">
+                <div className="w-6 h-6rounded-full flex items-center justify-center">
+                  <img src="/eo-logo-blue.svg" alt="EdgeOne Pages" width={32} height={32} />
+                </div>
+                <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
               </div>
-              <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
-            </div>
             </a>
             <a
               href="https://github.com/TencentEdgeOne/mysql-template"
@@ -77,23 +77,23 @@ export default function Home() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="https://edgeone.ai/pages/new?from=github&template=mysql-template" target="_blank" rel="noopener noreferrer">
-            <Button 
-              size="lg" 
-              className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
-            >
-              <Zap className="w-5 h-5 mr-2" />
-              Deploy Now
-            </Button>
+              <Button
+                size="lg"
+                className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
+              >
+                <Zap className="w-5 h-5 mr-2" />
+                Deploy Now
+              </Button>
             </a>
             <a href="https://pages.edgeone.ai/document/node-functions" target="_blank" rel="noopener noreferrer">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-gray-600 hover:bg-gray-800 text-white px-8 py-3 text-lg cursor-pointer"
-            >
-              <ExternalLink className="w-5 h-5 mr-2" />
-              View Documentation
-            </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-gray-600 hover:bg-gray-800 text-white px-8 py-3 text-lg cursor-pointer"
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                View Documentation
+              </Button>
             </a>
           </div>
 
@@ -106,7 +106,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <pre className="text-sm text-gray-200 font-mono leading-relaxed">
-{`import mysql from 'mysql2/promise';
+                {`import mysql from 'mysql2/promise';
 
 ...
 
@@ -133,7 +133,7 @@ export const onRequestGet = async (context) => {
           <Card className="bg-gray-900 border-gray-700">
             <CardContent className="pt-6">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <Button 
+                <Button
                   onClick={handleApiCall}
                   disabled={isLoading}
                   className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
@@ -157,7 +157,7 @@ export const onRequestGet = async (context) => {
             </CardContent>
           </Card>
         </div>
-       
+
       </main>
       {/* Footer */}
       <footer className="border-t border-gray-800 mt-16">
