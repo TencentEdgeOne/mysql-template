@@ -1,8 +1,7 @@
 import mysql from 'mysql2/promise';
 
-// 腾讯云 MySQL 数据库配置
+// Tencent Cloud MySQL database configuration
 const dbConfig = {
- 
   charset: 'utf8mb4',
   timezone: '+08:00',
   connectionLimit: 10,
@@ -11,10 +10,10 @@ const dbConfig = {
   reconnect: true
 };
 
-// 数据库连接池
+// Database connection pool
 let pool = null;
 
-// 初始化数据库连接
+// Initialize database connection
 const initDatabase = (env) => {
   if (!pool) {
     pool = mysql.createPool({
@@ -30,7 +29,7 @@ const initDatabase = (env) => {
   return pool;
 };
 
-// 执行数据库查询
+// Execute database query
 const executeQuery = async (sql, params = [], env = {}) => {
   try {
     const connection = initDatabase(env);
@@ -42,9 +41,8 @@ const executeQuery = async (sql, params = [], env = {}) => {
   }
 };
 
-
 export const onRequestGet = async (context) => {
-  // 在这里添加数据库查询逻辑
+  // Add database query logic here
   const result = await executeQuery('SELECT * FROM user LIMIT 100', [], context.env);
 
   return new Response(JSON.stringify({
