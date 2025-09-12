@@ -221,7 +221,7 @@ The project uses Tailwind CSS 4, and you can add custom styles in `src/app/globa
 
 ## 📄 License
 
-This project uses the MIT License - see the [LICENSE](LICENSE) file for details.
+This project uses the MIT License - see the [LICENSE](https://github.com/github/choosealicense.com/blob/gh-pages/_licenses/mit.txt) file for details.
 
 ## Deployment
 [![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=express-template)
